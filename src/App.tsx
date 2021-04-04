@@ -1,10 +1,13 @@
 import React from 'react';
+import Content from './components/Content';
+import SideBar from './components/SideBar';
 import styles from './styles/App.module.scss';
 
 const App = () => {
     return (
-        <div>
-            <h1 className={styles.title}>SpaceX</h1>
+        <div className={styles.container}>
+            <SideBar/>
+            <Content/>
         </div>
     );
 };
