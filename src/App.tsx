@@ -8,10 +8,11 @@ import SideBar from './components/SideBar';
 
 const SPACEX_API_LAUNCHES_ENDPOINT = 'https://api.spacexdata.com/v4/launches/query';
 
-export const UpcomingLaunchesContext = createContext<ILaunch[]>([]);
+export const LaunchesContext = createContext<ILaunch[]>([]);
 
 const App = () => {
     const [upcomingLaunches, setUpcomingLaunches] = useState<ILaunch[]>([]);
+    const [selectedLaunchIndex, setSelectedLaunchIndex] = useState<number>(0);
 
     useEffect(() => {
         const fetchApiData = async () => {
@@ -27,12 +28,12 @@ const App = () => {
     }, []);
 
     return (
-        <UpcomingLaunchesContext.Provider value={upcomingLaunches}>
+        <LaunchesContext.Provider value={upcomingLaunches}>
             <div className={styles.container}>
                 <SideBar />
-                <Content />
+                <Content launchIndex={selectedLaunchIndex} />
             </div>
-        </UpcomingLaunchesContext.Provider>
+        </LaunchesContext.Provider>
     );
 };
 

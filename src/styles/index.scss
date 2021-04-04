@@ -1,5 +1,10 @@
 @import url('https://fonts.googleapis.com/css2?family=Nunito:wght@400;500;600;700;800&display=swap');
 
+@font-face {
+    font-family: 'Redwing';
+    src: url(../assets/fonts/Redwing.otf) format('opentype');
+}
+
 :root {
     --color-text: #000000;
     --color-text-light: #CCCCCC;
@@ -17,6 +22,7 @@
     padding: 0;
     margin: 0;
     text-decoration: none;
+    font-size: 1.7rem;
 }
 
 html {
