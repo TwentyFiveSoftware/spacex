@@ -1,24 +1,28 @@
 .container {
-    border: 1px solid green;
+    border: 1px solid var(--color-accent);
     border-radius: 1rem;
-    padding: 1.3rem;
+    padding: 1rem 1.3rem;
+    margin: 2rem 0;
 }
 .flightNumber {
     font-size: 1.5rem;
-    color: gray;
+    color: var(--color-sidebar-text);
     margin: 0;
 }
 .name {
     font-size: 1.8rem;
-    color: white;
-    margin: 0 0 .2rem 0;
+    color: var(--color-text-white);
+    line-height: 1.5rem;
+    margin: 0 0 .7rem 0;
 }
 .flexRow {
     display: flex;
     padding-left: 1rem;
     font-size: 1.3rem;
-    color: gray;
+    color: var(--color-sidebar-text);
 }
 .spacer {
-    padding: 0 1rem;
+    padding: 0 1.2rem;
+    font-size: 1rem;
+    color: var(--color-sidebar-decoration)
 }
