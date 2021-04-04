@@ -1,6 +1,17 @@
 .container {
     padding: 6rem 4rem;
     overflow-y: scroll;
+    &::-webkit-scrollbar {
+        width: .8rem;
+    }
+    &::-webkit-scrollbar-track {
+        background: var(--color-text-white);
+    }
+    &::-webkit-scrollbar-thumb {
+        background-color: var(--color-text-light);
+        border-radius: 20px;
+        border: 0;
+    }
 }
 
 .date {
