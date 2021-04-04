@@ -6,6 +6,21 @@
 
 .launchTypSelection {
     background: var(--color-sidebar-dark);
+    p {
+        position: absolute;
+        cursor: pointer;
+        color: var(--color-sidebar-text);
+        transform: rotate(90deg);
+        top: 13.2rem;
+        left: -6rem;
+    }
+    p:last-child {
+        top: 33rem;
+        left: -3.5rem;
+    }
+    .active {
+        color: var(--color-text-white);
+    }
 }
 .launchSelection {
     height: 100vh;

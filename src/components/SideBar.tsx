@@ -1,13 +1,21 @@
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
 import { LaunchesContext } from '../App';
 import styles from '../styles/SideBar.module.scss';
 import LaunchContainer from './LaunchContainer';
 
 const SideBar = () => {
+    const [activeType, setActiveType] = useState('upcoming');
     const launches = useContext(LaunchesContext);
     return (
         <div className={styles.container}>
-            <div className={styles.launchTypSelection}></div>
+            <div className={styles.launchTypSelection}>
+                <p onClick={() => setActiveType('upcoming')} className={activeType === 'upcoming' ? styles.active : ''}>
+                    UPCOMING LAUNCHES
+                </p>
+                <p onClick={() => setActiveType('past')} className={activeType === 'past' ? styles.active : ''}>
+                    PAST LAUNCHES
+                </p>
+            </div>
             <div className={styles.launchSelection}>
                 {launches.map(obj => (
                     <LaunchContainer
