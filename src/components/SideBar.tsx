@@ -11,7 +11,8 @@ const SideBar = () => {
             <div className={styles.launchSelection}>
                 {launches.map(obj => (
                     <LaunchContainer
-                        active={false}
+                        key={obj.flight_number}
+                        active={obj.flight_number === 122}
                         flightNumber={obj.flight_number}
                         name={obj.name}
                         launchPadName={obj.launchpad?.name}

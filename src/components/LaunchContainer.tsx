@@ -24,18 +24,18 @@ const formatDate = (date: number) => {
 }
 
 const LaunchContainer: FunctionComponent<Params> = ({active, flightNumber, name, rocketName, launchPadName, payload, date}) => {
-    return <div className={styles.container}>
+    return <div className={active ? styles.container : styles.containerInactive} onClick={() => null}>
         <p className={styles.flightNumber}>#{flightNumber.toString()}</p>
         <p className={styles.name}>{name}</p>
         <div className={styles.flexRow}>
-            <p className={styles.date}>{formatDate(date)}</p>
+            <p>{formatDate(date)}</p>
             <p className={styles.spacer}>•</p>
-            <p className={styles.rocketName}>{rocketName}</p>
+            <p>{rocketName}</p>
         </div>
         <div className={styles.flexRow}>
-            <p className={styles.launchPadName}>{launchPadName}</p>
+            <p>{launchPadName}</p>
             <p className={styles.spacer}>•</p>
-            <p className={styles.type}>{payload}</p>
+            <p>{payload}</p>
         </div>
     </div>;
 };
