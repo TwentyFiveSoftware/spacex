@@ -5,7 +5,7 @@
     margin: 2rem 0;
 }
 .flightNumber {
-    font-size: 1.5rem;
+    font-size: 1.4rem;
     color: var(--color-sidebar-text);
     margin: 0;
 }
@@ -18,8 +18,10 @@
 .flexRow {
     display: flex;
     padding-left: 1rem;
-    font-size: 1.3rem;
     color: var(--color-sidebar-text);
+    p {
+        font-size: 1.4rem;
+    }
 }
 .spacer {
     padding: 0 1.2rem;
