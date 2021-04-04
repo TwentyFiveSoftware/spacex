@@ -1,8 +1,6 @@
-.title {
-    font-size: 3rem;
-}
 .container {
     height: 100vh;
     display: grid;
     grid-template-columns: 40rem 1fr;
+    overflow: hidden;
 }
