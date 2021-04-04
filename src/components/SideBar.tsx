@@ -1,10 +1,10 @@
 import React, { useContext } from 'react';
-import { UpcomingLaunchesContext } from '../App';
+import { LaunchesContext } from '../App';
 import styles from '../styles/SideBar.module.scss';
 import LaunchContainer from './LaunchContainer';
 
 const SideBar = () => {
-    const launches = useContext(UpcomingLaunchesContext);
+    const launches = useContext(LaunchesContext);
     return (
         <div className={styles.container}>
             <div className={styles.launchTypSelection}></div>
