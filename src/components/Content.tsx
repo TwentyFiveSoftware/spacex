@@ -3,6 +3,7 @@ import styles from '../styles/Content.module.scss';
 import { LaunchesContext } from '../App';
 import InfoContainer from './InfoContainer';
 import DataTable from './DataTable';
+import GroupWrapper from './GroupWrapper';
 
 const DATE_TIME_FORMAT = Intl.DateTimeFormat('de', {
     day: '2-digit',
@@ -43,10 +44,66 @@ const Content: FunctionComponent<{ launchIndex: number }> = ({ launchIndex }) =>
                             ]}
                         />
                     </InfoContainer>
-                    <InfoContainer title={'CORES / LANDING'}></InfoContainer>
+                    <InfoContainer title={'CORES / LANDING'}>
+                        {launch.cores.map((core, index) => (
+                            <GroupWrapper key={index}>
+                                <h3 className={styles.subtitle}>CORE #{index + 1}</h3>
+                                <DataTable
+                                    content={[
+                                        { name: 'Flight', value: core.flight },
+                                        {
+                                            name: 'Landing attempt',
+                                            value:
+                                                core.landing_attempt === null
+                                                    ? '---'
+                                                    : core.landing_attempt
+                                                    ? 'Yes'
+                                                    : 'No',
+                                        },
+                                        { name: 'Landing type', value: core.landing_type },
+                                    ]}
+                                />
+
+                                <h3 className={styles.subtitle}>LANDPAD</h3>
+                                {core.landpad === null ? (
+                                    '---'
+                                ) : (
+                                    <DataTable
+                                        content={[
+                                            { name: 'Name', value: core.landpad.name },
+                                            { name: 'Full name', value: core.landpad.full_name },
+                                            { name: 'Type', value: core.landpad.type },
+                                            { name: 'Locality', value: core.landpad.locality },
+                                            { name: 'Region', value: core.landpad.region },
+                                        ]}
+                                    />
+                                )}
+                            </GroupWrapper>
+                        ))}
+                    </InfoContainer>
                 </div>
                 <div className={styles.column}>
-                    <InfoContainer title={'PAYLOAD'}></InfoContainer>
+                    <InfoContainer title={'PAYLOAD'}>
+                        {launch.payloads.map((payload, index) => (
+                            <GroupWrapper key={index}>
+                                <DataTable
+                                    content={[
+                                        { name: 'Name', value: payload.name },
+                                        { name: 'Type', value: payload.type },
+                                        { name: 'Customers', value: payload.customers.join(', ') },
+                                        { name: 'Manufacturers', value: payload.manufacturers.join(', ') },
+                                        {
+                                            name: 'Mass',
+                                            value: payload.mass_kg
+                                                ? `${new Intl.NumberFormat('de').format(payload.mass_kg)} kg`
+                                                : '---',
+                                        },
+                                        { name: 'Orbit', value: `${payload.orbit} (${payload.regime})` },
+                                    ]}
+                                />
+                            </GroupWrapper>
+                        ))}
+                    </InfoContainer>
                     <InfoContainer title={'LAUNCHPAD'} text={launch.launchpad.details}>
                         <DataTable
                             content={[

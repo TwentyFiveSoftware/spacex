@@ -36,3 +36,11 @@
     flex-direction: column;
     row-gap: 4rem;
 }
+
+.subtitle {
+    &:not(.subtitle:first-child) {
+        margin-top: 2rem;
+    }
+
+    margin-bottom: 0.5rem;
+}

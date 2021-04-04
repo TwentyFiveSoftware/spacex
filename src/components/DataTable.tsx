@@ -1,14 +1,14 @@
 import React, { FunctionComponent } from 'react';
 import '../styles/DataTable.module.scss';
 
-const DataTable: FunctionComponent<{ content: { name: string; value: string | number }[] }> = ({ content }) => {
+const DataTable: FunctionComponent<{ content: { name: string; value: string | number | null }[] }> = ({ content }) => {
     return (
         <table>
             <tbody>
                 {content.map((row, index) => (
                     <tr key={index}>
                         <td>{row.name}</td>
-                        <td>{row.value}</td>
+                        <td>{row.value ?? '---'}</td>
                     </tr>
                 ))}
             </tbody>
