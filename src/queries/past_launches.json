@@ -1,5 +1,5 @@
 {
-    "query":{
+    "query": {
         "upcoming": false
     },
     "options": {
@@ -29,7 +29,7 @@
                 "select": {
                     "_id": 0,
                     "name": 1,
-                    "type": 1,
+                    "stages": 1,
                     "height.meters": 1,
                     "cost_per_launch": 1,
                     "description": 1

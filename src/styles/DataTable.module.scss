@@ -1,0 +1,11 @@
+td {
+    padding-right: 3rem;
+
+    &:first-child {
+        color: var(--color-text-light);
+    }
+
+    &:last-child {
+        font-weight: 600;
+    }
+}

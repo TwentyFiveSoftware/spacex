@@ -15,7 +15,7 @@ export interface ILaunch {
 
 export interface IRocket {
     name: string;
-    type: string;
+    stages: number;
     height: { meters: number };
     cost_per_launch: number;
     description: string;
