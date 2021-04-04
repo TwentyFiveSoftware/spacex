@@ -1,8 +1,9 @@
 .container {
-    background: #292B30;
+    background: var(--color-sidebar);
     display: grid;
     grid-template-columns: 7rem 1fr;
 }
+
 .launchTypSelection {
-    background: #181A1C;
+    background: var(--color-sidebar-dark);
 }
