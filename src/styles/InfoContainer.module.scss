@@ -1,0 +1,13 @@
+.container {
+    padding: 1rem 1.5rem;
+    display: grid;
+    row-gap: 2rem;
+    border: 0.1rem solid var(--color-accent);
+    border-radius: 1rem;
+}
+
+.title {
+    font-size: 1.8rem;
+    color: var(--color-accent);
+    font-weight: 400;
+}
