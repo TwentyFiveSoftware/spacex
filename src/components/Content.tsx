@@ -2,6 +2,7 @@ import React, { FunctionComponent, useContext } from 'react';
 import styles from '../styles/Content.module.scss';
 import { LaunchesContext } from '../App';
 import InfoContainer from './InfoContainer';
+import DataTable from './DataTable';
 
 const DATE_TIME_FORMAT = Intl.DateTimeFormat('de', {
     day: '2-digit',
@@ -26,13 +27,36 @@ const Content: FunctionComponent<{ launchIndex: number }> = ({ launchIndex }) =>
             <div className={styles.info}>
                 <div className={styles.column}>
                     <InfoContainer title={'ROCKET'} text={launch.rocket.description}>
-                        x
+                        <DataTable
+                            content={[
+                                { name: 'Name', value: launch.rocket.name },
+                                { name: 'Stages', value: launch.rocket.stages },
+                                { name: 'Height', value: `${launch.rocket.height.meters} m` },
+                                {
+                                    name: 'Cost per launch',
+                                    value: new Intl.NumberFormat('en', {
+                                        style: 'currency',
+                                        currency: 'USD',
+                                        maximumFractionDigits: 0,
+                                    }).format(launch.rocket.cost_per_launch),
+                                },
+                            ]}
+                        />
                     </InfoContainer>
                     <InfoContainer title={'CORES / LANDING'}></InfoContainer>
                 </div>
                 <div className={styles.column}>
                     <InfoContainer title={'PAYLOAD'}></InfoContainer>
-                    <InfoContainer title={'LAUNCHPAD'} text={launch.launchpad.details}></InfoContainer>
+                    <InfoContainer title={'LAUNCHPAD'} text={launch.launchpad.details}>
+                        <DataTable
+                            content={[
+                                { name: 'Name', value: launch.launchpad.name },
+                                { name: 'Full name', value: launch.launchpad.full_name },
+                                { name: 'Locality', value: launch.launchpad.locality },
+                                { name: 'Region', value: launch.launchpad.region },
+                            ]}
+                        />
+                    </InfoContainer>
                 </div>
             </div>
         </main>
