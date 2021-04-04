@@ -41,6 +41,17 @@ html {
   padding: 6rem 4rem;
   overflow-y: scroll;
 }
+.container::-webkit-scrollbar {
+  width: 0.8rem;
+}
+.container::-webkit-scrollbar-track {
+  background: var(--color-text-white);
+}
+.container::-webkit-scrollbar-thumb {
+  background-color: var(--color-text-light);
+  border-radius: 20px;
+  border: 0;
+}
 .date {
   font-size: 5rem;
   font-family:
@@ -108,6 +119,17 @@ html {
   height: 100vh;
   overflow-y: scroll;
   padding: 3rem 1.5rem 0 1.5rem;
+}
+.launchSelection::-webkit-scrollbar {
+  width: 0.8rem;
+}
+.launchSelection::-webkit-scrollbar-track {
+  background: var(--color-sidebar);
+}
+.launchSelection::-webkit-scrollbar-thumb {
+  background-color: var(--color-sidebar-text);
+  border-radius: 20px;
+  border: 0;
 }
 
 /* build/dist/styles/DataTable.module.css */
