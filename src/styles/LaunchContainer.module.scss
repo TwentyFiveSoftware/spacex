@@ -1,0 +1,24 @@
+.container {
+    border: 1px solid green;
+    border-radius: 1rem;
+    padding: 1.3rem;
+}
+.flightNumber {
+    font-size: 1.5rem;
+    color: gray;
+    margin: 0;
+}
+.name {
+    font-size: 1.8rem;
+    color: white;
+    margin: 0 0 .2rem 0;
+}
+.flexRow {
+    display: flex;
+    padding-left: 1rem;
+    font-size: 1.3rem;
+    color: gray;
+}
+.spacer {
+    padding: 0 1rem;
+}
