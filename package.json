@@ -1,6 +1,7 @@
 {
     "name": "spacex",
     "version": "1.0.0",
+    "homepage": "https://spacex.twentyfive.dev",
     "scripts": {
         "start": "snowpack dev",
         "build": "snowpack build",
