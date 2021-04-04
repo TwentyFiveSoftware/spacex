@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { createContext, useEffect, useState } from 'react';
 import styles from './styles/App.module.scss';
 import axios from 'axios';
 import type { ILaunch } from './types/SpaceX';
@@ -7,6 +7,8 @@ import Content from './components/Content';
 import SideBar from './components/SideBar';
 
 const SPACEX_API_LAUNCHES_ENDPOINT = 'https://api.spacexdata.com/v4/launches/query';
+
+export const UpcomingLaunchesContext = createContext<ILaunch[]>([]);
 
 const App = () => {
     const [upcomingLaunches, setUpcomingLaunches] = useState<ILaunch[]>([]);
@@ -25,10 +27,12 @@ const App = () => {
     }, []);
 
     return (
-        <div className={styles.container}>
-            <SideBar/>
-            <Content/>
-        </div>
+        <UpcomingLaunchesContext.Provider value={upcomingLaunches}>
+            <div className={styles.container}>
+                <SideBar />
+                <Content />
+            </div>
+        </UpcomingLaunchesContext.Provider>
     );
 };
 
