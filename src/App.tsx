@@ -22,6 +22,7 @@ const App = () => {
             const { data } = await axios.post<{ docs: ILaunch[] }>(
                 SPACEX_API_LAUNCHES_ENDPOINT,
                 upcomingLaunchesRequestBody,
+                { headers: { 'Content-Type': 'application/json' } },
             );
             if (!data) return;
             setUpcomingLaunches(data.docs);
@@ -31,6 +32,7 @@ const App = () => {
             const { data } = await axios.post<{ docs: ILaunch[] }>(
                 SPACEX_API_LAUNCHES_ENDPOINT,
                 pastLaunchesRequestBody,
+                { headers: { 'Content-Type': 'application/json' } },
             );
             if (!data) return;
             setPastLaunches(data.docs);
