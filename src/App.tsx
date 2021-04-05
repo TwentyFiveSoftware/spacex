@@ -2,10 +2,10 @@ import React, { createContext, useEffect, useState } from 'react';
 import styles from './styles/App.module.scss';
 import axios from 'axios';
 import type { ILaunch } from './types/SpaceX';
-import upcomingLaunchesRequestBody from './queries/upcoming_launches.json';
-import pastLaunchesRequestBody from './queries/past_launches.json';
 import Content from './components/Content';
 import SideBar from './components/SideBar';
+import { PAST_LAUNCHES_REQUEST_BODY } from './queries/past_launches';
+import { UPCOMING_LAUNCHES_REQUEST_BODY } from './queries/upcoming_launches';
 
 const SPACEX_API_LAUNCHES_ENDPOINT = 'https://api.spacexdata.com/v4/launches/query';
 
@@ -21,7 +21,7 @@ const App = () => {
         const fetchUpcomingLaunches = async () => {
             const { data } = await axios.post<{ docs: ILaunch[] }>(
                 SPACEX_API_LAUNCHES_ENDPOINT,
-                upcomingLaunchesRequestBody,
+                UPCOMING_LAUNCHES_REQUEST_BODY,
                 { headers: { 'Content-Type': 'application/json' } },
             );
             if (!data) return;
@@ -31,7 +31,7 @@ const App = () => {
         const fetchPastLaunches = async () => {
             const { data } = await axios.post<{ docs: ILaunch[] }>(
                 SPACEX_API_LAUNCHES_ENDPOINT,
-                pastLaunchesRequestBody,
+                PAST_LAUNCHES_REQUEST_BODY,
                 { headers: { 'Content-Type': 'application/json' } },
             );
             if (!data) return;

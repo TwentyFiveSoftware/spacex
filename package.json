@@ -7,8 +7,6 @@
         "build": "snowpack build",
         "format": "prettier --write \"src/**/*.{js,jsx,ts,tsx}\"",
         "lint": "prettier --check \"src/**/*.{js,jsx,ts,tsx}\"",
-        "copy": "cp ./CNAME ./build/CNAME",
-        "postbuild": "npm run copy"
     },
     "devDependencies": {
         "@snowpack/plugin-dotenv": "^2.1.0",
