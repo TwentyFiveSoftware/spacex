@@ -12,8 +12,8 @@ module.exports = {
     ],
     routes: [],
     optimize: {
-        bundle: true,
-        minify: true,
+        // bundle: true,
+        // minify: true,
     },
     packageOptions: {},
     devOptions: {},
