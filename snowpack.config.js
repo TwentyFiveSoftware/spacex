@@ -17,7 +17,5 @@ module.exports = {
     },
     packageOptions: {},
     devOptions: {},
-    buildOptions: {
-        baseUrl: './',
-    },
+    buildOptions: {},
 };
