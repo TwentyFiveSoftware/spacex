@@ -8254,13 +8254,13 @@ var App = () => {
   const [isUpcomingSelected, setIsUpcomingSelected] = useState(true);
   useEffect(() => {
     const fetchUpcomingLaunches = async () => {
-      const {data} = await axios_default.post(SPACEX_API_LAUNCHES_ENDPOINT, upcomingLaunchesRequestBody);
+      const {data} = await axios_default.post(SPACEX_API_LAUNCHES_ENDPOINT, upcomingLaunchesRequestBody, {headers: {"Content-Type": "application/json"}});
       if (!data)
         return;
       setUpcomingLaunches(data.docs);
     };
     const fetchPastLaunches = async () => {
-      const {data} = await axios_default.post(SPACEX_API_LAUNCHES_ENDPOINT, pastLaunchesRequestBody);
+      const {data} = await axios_default.post(SPACEX_API_LAUNCHES_ENDPOINT, pastLaunchesRequestBody, {headers: {"Content-Type": "application/json"}});
       if (!data)
         return;
       setPastLaunches(data.docs);
