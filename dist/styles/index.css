@@ -1,0 +1,29 @@
+@import url("https://fonts.googleapis.com/css2?family=Nunito:wght@400;500;600;700;800&display=swap");
+@font-face {
+  font-family: "Redwing";
+  src: url("/dist/assets/fonts/Redwing.otf") format("opentype");
+}
+:root {
+  --color-text: #000000;
+  --color-text-light: #CCCCCC;
+  --color-text-white: #FFFFFF;
+  --color-accent: #AACB84;
+  --color-sidebar: #36393F;
+  --color-sidebar-dark: #202225;
+  --color-sidebar-text: #8E9297;
+  --color-sidebar-decoration: #474A50;
+}
+
+* {
+  box-sizing: border-box;
+  font-family: "Nunito", sans-serif;
+  padding: 0;
+  margin: 0;
+  text-decoration: none;
+  font-size: 1.7rem;
+  color: var(--color-text);
+}
+
+html {
+  font-size: 10px;
+}

@@ -1,0 +1,41 @@
+.container {
+  background: var(--color-sidebar);
+  display: grid;
+  grid-template-columns: 7rem 1fr;
+}
+
+.launchTypSelection {
+  background: var(--color-sidebar-dark);
+}
+.launchTypSelection p {
+  position: absolute;
+  cursor: pointer;
+  color: var(--color-sidebar-text);
+  transform: rotate(90deg);
+  top: 13.2rem;
+  left: -6rem;
+}
+.launchTypSelection p:last-child {
+  top: 33rem;
+  left: -3.5rem;
+}
+.launchTypSelection .active {
+  color: var(--color-text-white);
+}
+
+.launchSelection {
+  height: 100vh;
+  overflow-y: scroll;
+  padding: 3rem 1.5rem 0 1.5rem;
+}
+.launchSelection::-webkit-scrollbar {
+  width: 0.8rem;
+}
+.launchSelection::-webkit-scrollbar-track {
+  background: var(--color-sidebar);
+}
+.launchSelection::-webkit-scrollbar-thumb {
+  background-color: var(--color-sidebar-text);
+  border-radius: 20px;
+  border: 0;
+}

@@ -1,0 +1,9 @@
+td {
+  padding-right: 3rem;
+}
+td:first-child {
+  color: var(--color-text-light);
+}
+td:last-child {
+  font-weight: 600;
+}
