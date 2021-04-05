@@ -13,4 +13,4 @@ object-assign
 (c) Sindre Sorhus
 @license MIT
 */
-//# sourceMappingURL=/dist//index.js.map
+//# sourceMappingURL=//dist//index.js.map
