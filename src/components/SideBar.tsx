@@ -10,13 +10,27 @@ const SideBar: FunctionComponent<{
     onSelectIsUpcoming: Function;
 }> = ({ launchIndex, onSelectLaunch, isUpcomingSelected, onSelectIsUpcoming }) => {
     const launches = useContext(LaunchesContext);
+    const [sidebarVisible, setSidebarVisible] = useState<boolean>(true);
+
     return (
-        <div className={styles.container}>
+        <div className={sidebarVisible ? styles.sidebar : styles.sidebar__hidden}>
             <div className={styles.launchTypSelection}>
-                <p onClick={() => onSelectIsUpcoming(true)} className={isUpcomingSelected ? styles.active : ''}>
+                <p
+                    onClick={() => {
+                        onSelectIsUpcoming(true);
+                        setSidebarVisible(true);
+                    }}
+                    className={isUpcomingSelected ? styles.active : ''}
+                >
                     UPCOMING LAUNCHES
                 </p>
-                <p onClick={() => onSelectIsUpcoming(false)} className={!isUpcomingSelected ? styles.active : ''}>
+                <p
+                    onClick={() => {
+                        onSelectIsUpcoming(false);
+                        setSidebarVisible(true);
+                    }}
+                    className={!isUpcomingSelected ? styles.active : ''}
+                >
                     PAST LAUNCHES
                 </p>
             </div>
@@ -31,7 +45,10 @@ const SideBar: FunctionComponent<{
                         rocketName={obj.rocket?.name}
                         payload={obj.payloads[0]?.type}
                         date={obj.date_unix}
-                        onClick={() => onSelectLaunch(index)}
+                        onClick={() => {
+                            setSidebarVisible(false);
+                            onSelectLaunch(index);
+                        }}
                     />
                 ))}
             </div>

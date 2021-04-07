@@ -1,11 +1,42 @@
-.container {
+.sidebar {
     background: var(--color-sidebar);
     display: grid;
-    grid-template-columns: 7rem 1fr;
+    grid-template-columns: 7rem max-content;
+
+    @media (max-width: 1200px) {
+        overflow-y: auto;
+        display: block;
+        height: 100vh;
+    }
+}
+
+.sidebar__hidden {
+    @extend .sidebar;
+
+    @media (max-width: 1200px) {
+        position: absolute;
+
+        & > .launchSelection {
+            display: none;
+        }
+    }
 }
 
 .launchTypSelection {
     background: var(--color-sidebar-dark);
+
+    @media (max-width: 1200px) {
+        position: fixed;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        width: 7rem;
+    }
+
+    @media (max-width: 600px) {
+        width: 5rem;
+    }
+
     p {
         position: absolute;
         cursor: pointer;
@@ -13,25 +44,50 @@
         transform: rotate(90deg);
         top: 13.2rem;
         left: -6rem;
+        white-space: nowrap;
+
+        @media (max-width: 600px) {
+            font-size: 1.5rem;
+        }
     }
+
     p:last-child {
         top: 33rem;
         left: -3.5rem;
     }
+
     .active {
         color: var(--color-text-white);
     }
 }
+
 .launchSelection {
     height: 100vh;
     overflow-y: scroll;
     padding: 3rem 1.5rem 0 1.5rem;
+    width: 33rem;
+
+    @media (max-width: 1200px) {
+        width: 100%;
+        height: max-content;
+        display: grid;
+        gap: 2rem;
+        grid-template-columns: repeat(auto-fill, minmax(30rem, 1fr));
+        padding: 3rem 2rem 3rem 9rem;
+    }
+
+    @media (max-width: 600px) {
+        padding: 3rem 2rem 3rem 7rem;
+    }
+
     &::-webkit-scrollbar {
         width: .8rem;
     }
+
     &::-webkit-scrollbar-track {
         background: var(--color-sidebar);
     }
+
     &::-webkit-scrollbar-thumb {
         background-color: var(--color-sidebar-text);
         border-radius: 20px;

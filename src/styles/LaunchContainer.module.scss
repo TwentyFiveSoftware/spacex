@@ -4,6 +4,12 @@
     padding: 1rem 1.3rem;
     margin: 2rem 0;
     cursor: pointer;
+
+    @media (max-width: 1200px) {
+        margin: 0;
+        height: max-content;
+        border-color: var(--color-sidebar-decoration);
+    }
 }
 
 .containerInactive {
@@ -12,6 +18,11 @@
     padding: 1rem 1.3rem;
     margin: 2rem 0;
     cursor: pointer;
+
+    @media (max-width: 1200px) {
+        margin: 0;
+        height: max-content;
+    }
 }
 
 .flightNumber {
