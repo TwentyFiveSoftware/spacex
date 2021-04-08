@@ -1,6 +1,11 @@
 .container {
   height: 100vh;
   display: grid;
-  grid-template-columns: 40rem 1fr;
+  grid-template-columns: max-content 1fr;
   overflow: hidden;
+}
+@media (max-width: 1200px) {
+  .container {
+    display: block;
+  }
 }

@@ -1,18 +1,25 @@
-import React, {useContext} from "../../_snowpack/pkg/react.js";
+import React, {useContext, useState} from "../../_snowpack/pkg/react.js";
 import {LaunchesContext} from "../App.js";
 import styles from "../styles/SideBar.module.css.proxy.js";
 import LaunchContainer from "./LaunchContainer.js";
 const SideBar = ({launchIndex, onSelectLaunch, isUpcomingSelected, onSelectIsUpcoming}) => {
   const launches = useContext(LaunchesContext);
+  const [sidebarVisible, setSidebarVisible] = useState(true);
   return /* @__PURE__ */ React.createElement("div", {
-    className: styles.container
+    className: sidebarVisible ? styles.sidebar : styles.sidebar__hidden
   }, /* @__PURE__ */ React.createElement("div", {
     className: styles.launchTypSelection
   }, /* @__PURE__ */ React.createElement("p", {
-    onClick: () => onSelectIsUpcoming(true),
+    onClick: () => {
+      onSelectIsUpcoming(true);
+      setSidebarVisible(true);
+    },
     className: isUpcomingSelected ? styles.active : ""
   }, "UPCOMING LAUNCHES"), /* @__PURE__ */ React.createElement("p", {
-    onClick: () => onSelectIsUpcoming(false),
+    onClick: () => {
+      onSelectIsUpcoming(false);
+      setSidebarVisible(true);
+    },
     className: !isUpcomingSelected ? styles.active : ""
   }, "PAST LAUNCHES")), /* @__PURE__ */ React.createElement("div", {
     className: styles.launchSelection
@@ -25,7 +32,10 @@ const SideBar = ({launchIndex, onSelectLaunch, isUpcomingSelected, onSelectIsUpc
     rocketName: obj.rocket?.name,
     payload: obj.payloads[0]?.type,
     date: obj.date_unix,
-    onClick: () => onSelectLaunch(index)
+    onClick: () => {
+      setSidebarVisible(false);
+      onSelectLaunch(index);
+    }
   }))));
 };
 export default SideBar;
