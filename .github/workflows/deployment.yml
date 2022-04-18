@@ -12,14 +12,12 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v2
-        with:
-          persist-credentials: false
 
       - name: Install
-        run: npm install
+        run: yarn install
 
       - name: Build
-        run: npm run build
+        run: yarn run build
 
       - name: Create CNAME
         run: echo spacex.twentyfive.dev > build/CNAME
