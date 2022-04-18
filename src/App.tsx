@@ -11,7 +11,7 @@ const SPACEX_API_LAUNCHES_ENDPOINT = 'https://api.spacexdata.com/v4/launches/que
 
 export const LaunchesContext = createContext<ILaunch[]>([]);
 
-const App = () => {
+const App: React.FC = () => {
     const [upcomingLaunches, setUpcomingLaunches] = useState<ILaunch[]>([]);
     const [pastLaunches, setPastLaunches] = useState<ILaunch[]>([]);
     const [selectedLaunchIndex, setSelectedLaunchIndex] = useState<number>(0);

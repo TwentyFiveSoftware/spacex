@@ -1,7 +1,7 @@
-import React, { FunctionComponent } from 'react';
+import React from 'react';
 import '../styles/DataTable.module.scss';
 
-const DataTable: FunctionComponent<{ content: { name: string; value: string | number | null }[] }> = ({ content }) => {
+const DataTable: React.FC<{ content: { name: string; value: string | number | null }[] }> = ({ content }) => {
     return (
         <table>
             <tbody>

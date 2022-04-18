@@ -1,7 +1,7 @@
-import React, { FunctionComponent } from 'react';
+import React from 'react';
 import styles from '../styles/LaunchContainer.module.scss';
 
-type Params = {
+interface Props {
     active: boolean;
     flightNumber: number;
     name: string;
@@ -9,8 +9,8 @@ type Params = {
     launchPadName: string;
     payload: string;
     date: number;
-    onClick: Function;
-};
+    onClick: () => void;
+}
 
 const formatDate = (date: number) => {
     const DATE_TIME_FORMAT = Intl.DateTimeFormat('de', {
@@ -22,7 +22,7 @@ const formatDate = (date: number) => {
     return DATE_TIME_FORMAT.format(new Date(date * 1000));
 };
 
-const LaunchContainer: FunctionComponent<Params> = ({
+const LaunchContainer: React.FC<Props> = ({
     active,
     flightNumber,
     name,
@@ -31,7 +31,7 @@ const LaunchContainer: FunctionComponent<Params> = ({
     payload,
     date,
     onClick,
-}) => {
+}: Props) => {
     return (
         <div className={active ? styles.container : styles.containerInactive} onClick={() => onClick()}>
             <p className={styles.flightNumber}>#{flightNumber.toString()}</p>

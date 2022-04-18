@@ -1,4 +1,4 @@
-import React, { FunctionComponent, useContext } from 'react';
+import React, { useContext } from 'react';
 import styles from '../styles/Content.module.scss';
 import { LaunchesContext } from '../App';
 import InfoContainer from './InfoContainer';
@@ -13,7 +13,7 @@ const DATE_TIME_FORMAT = Intl.DateTimeFormat('de', {
     minute: '2-digit',
 });
 
-const Content: FunctionComponent<{ launchIndex: number }> = ({ launchIndex }) => {
+const Content: React.FC<{ launchIndex: number }> = ({ launchIndex }) => {
     const launches = useContext(LaunchesContext);
     if (launches.length <= launchIndex) return null;
     const launch = launches[launchIndex];

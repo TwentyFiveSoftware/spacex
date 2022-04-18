@@ -1,14 +1,16 @@
-import React, { FunctionComponent, useContext, useState } from 'react';
+import React, { useContext, useState } from 'react';
 import { LaunchesContext } from '../App';
 import styles from '../styles/SideBar.module.scss';
 import LaunchContainer from './LaunchContainer';
 
-const SideBar: FunctionComponent<{
+interface Props {
     launchIndex: number;
     onSelectLaunch: Function;
     isUpcomingSelected: boolean;
     onSelectIsUpcoming: Function;
-}> = ({ launchIndex, onSelectLaunch, isUpcomingSelected, onSelectIsUpcoming }) => {
+}
+
+const SideBar: React.FC<Props> = ({ launchIndex, onSelectLaunch, isUpcomingSelected, onSelectIsUpcoming }: Props) => {
     const launches = useContext(LaunchesContext);
     const [sidebarVisible, setSidebarVisible] = useState<boolean>(true);
 

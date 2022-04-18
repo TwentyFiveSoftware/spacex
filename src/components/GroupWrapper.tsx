@@ -1,7 +1,11 @@
-import React, { FunctionComponent } from 'react';
+import React from 'react';
 import styles from '../styles/GroupWrapper.module.scss';
 
-const GroupWrapper: FunctionComponent = ({ children }) => {
+interface Props {
+    children: React.ReactNode;
+}
+
+const GroupWrapper: React.FC<Props> = ({ children }: Props) => {
     return (
         <div className={styles.wrapper}>
             <div className={styles.left}>
