@@ -1,17 +1,19 @@
 import React, { createContext, useEffect, useState } from 'react';
-import styles from './styles/App.module.scss';
+import styles from './App.module.scss';
 import axios from 'axios';
-import type { ILaunch } from './types/SpaceX';
-import Content from './components/Content';
-import SideBar from './components/SideBar';
-import { PAST_LAUNCHES_REQUEST_BODY } from './queries/past_launches';
-import { UPCOMING_LAUNCHES_REQUEST_BODY } from './queries/upcoming_launches';
+import type { ILaunch } from '../../types/SpaceX';
+import Content from '../Content/Content';
+import SideBar from '../SideBar/SideBar';
+import { PAST_LAUNCHES_REQUEST_BODY } from '../../queries/past_launches';
+import { UPCOMING_LAUNCHES_REQUEST_BODY } from '../../queries/upcoming_launches';
 
 const SPACEX_API_LAUNCHES_ENDPOINT = 'https://api.spacexdata.com/v4/launches/query';
 
 export const LaunchesContext = createContext<ILaunch[]>([]);
 
-const App: React.FC = () => {
+interface Props {}
+
+const App: React.FC<Props> = () => {
     const [upcomingLaunches, setUpcomingLaunches] = useState<ILaunch[]>([]);
     const [pastLaunches, setPastLaunches] = useState<ILaunch[]>([]);
     const [selectedLaunchIndex, setSelectedLaunchIndex] = useState<number>(0);

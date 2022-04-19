@@ -1,7 +1,7 @@
 import React, { useContext, useState } from 'react';
-import { LaunchesContext } from '../App';
-import styles from '../styles/SideBar.module.scss';
-import LaunchContainer from './LaunchContainer';
+import { LaunchesContext } from '../App/App';
+import styles from './SideBar.module.scss';
+import LaunchContainer from '../LaunchContainer/LaunchContainer';
 
 interface Props {
     launchIndex: number;

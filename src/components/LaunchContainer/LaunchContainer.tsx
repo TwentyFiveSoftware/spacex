@@ -1,5 +1,5 @@
 import React from 'react';
-import styles from '../styles/LaunchContainer.module.scss';
+import styles from './LaunchContainer.module.scss';
 
 interface Props {
     active: boolean;

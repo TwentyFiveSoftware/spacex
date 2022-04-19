@@ -1,5 +1,5 @@
 import React from 'react';
-import styles from '../styles/GroupWrapper.module.scss';
+import styles from './GroupWrapper.module.scss';
 
 interface Props {
     children: React.ReactNode;

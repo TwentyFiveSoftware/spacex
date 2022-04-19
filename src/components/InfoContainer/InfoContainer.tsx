@@ -1,5 +1,5 @@
 import React from 'react';
-import styles from '../styles/InfoContainer.module.scss';
+import styles from './InfoContainer.module.scss';
 
 interface Props {
     title: string;

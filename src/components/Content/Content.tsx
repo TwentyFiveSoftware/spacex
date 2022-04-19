@@ -1,9 +1,9 @@
 import React, { useContext } from 'react';
-import styles from '../styles/Content.module.scss';
-import { LaunchesContext } from '../App';
-import InfoContainer from './InfoContainer';
-import DataTable from './DataTable';
-import GroupWrapper from './GroupWrapper';
+import styles from './Content.module.scss';
+import { LaunchesContext } from '../App/App';
+import InfoContainer from '../InfoContainer/InfoContainer';
+import DataTable from '../DataTable/DataTable';
+import GroupWrapper from '../GroupWrapper/GroupWrapper';
 
 const DATE_TIME_FORMAT = Intl.DateTimeFormat('de', {
     day: '2-digit',

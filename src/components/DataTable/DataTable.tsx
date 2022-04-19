@@ -1,5 +1,5 @@
 import React from 'react';
-import '../styles/DataTable.module.scss';
+import './DataTable.module.scss';
 
 const DataTable: React.FC<{ content: { name: string; value: string | number | null }[] }> = ({ content }) => {
     return (
