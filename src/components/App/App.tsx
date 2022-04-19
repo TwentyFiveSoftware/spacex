@@ -1,11 +1,11 @@
 import React, { createContext, useEffect, useState } from 'react';
 import styles from './App.module.scss';
 import axios from 'axios';
-import type { ILaunch } from '../../types/SpaceX';
-import Content from '../Content/Content';
-import SideBar from '../SideBar/SideBar';
-import { PAST_LAUNCHES_REQUEST_BODY } from '../../queries/past_launches';
-import { UPCOMING_LAUNCHES_REQUEST_BODY } from '../../queries/upcoming_launches';
+import type { ILaunch } from 'types/SpaceX';
+import { PAST_LAUNCHES_REQUEST_BODY } from 'queries/past_launches';
+import { UPCOMING_LAUNCHES_REQUEST_BODY } from 'queries/upcoming_launches';
+import Content from 'components/Content/Content';
+import SideBar from 'components/SideBar/SideBar';
 
 const SPACEX_API_LAUNCHES_ENDPOINT = 'https://api.spacexdata.com/v4/launches/query';
 
@@ -56,6 +56,7 @@ const App: React.FC<Props> = () => {
                         setSelectedLaunchIndex(0);
                     }}
                 />
+
                 <Content launchIndex={selectedLaunchIndex} />
             </div>
         </LaunchesContext.Provider>

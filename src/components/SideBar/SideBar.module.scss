@@ -11,8 +11,6 @@
 }
 
 .sidebar__hidden {
-    @extend .sidebar;
-
     @media (max-width: 1200px) {
         position: absolute;
 

@@ -1,12 +1,19 @@
 import React from 'react';
 import './DataTable.module.scss';
 
-const DataTable: React.FC<{ content: { name: string; value: string | number | null }[] }> = ({ content }) => {
+interface Props {
+    content: {
+        name: string;
+        value: string | number | null;
+    }[];
+}
+
+const DataTable: React.FC<Props> = ({ content }: Props) => {
     return (
         <table>
             <tbody>
-                {content.map((row, index) => (
-                    <tr key={index}>
+                {content.map((row, i) => (
+                    <tr key={i}>
                         <td>{row.name}</td>
                         <td>{row.value ?? '---'}</td>
                     </tr>

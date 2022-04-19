@@ -1,13 +1,13 @@
 import React, { useContext, useState } from 'react';
-import { LaunchesContext } from '../App/App';
 import styles from './SideBar.module.scss';
-import LaunchContainer from '../LaunchContainer/LaunchContainer';
+import { LaunchesContext } from 'components/App/App';
+import LaunchContainer from 'components/LaunchContainer/LaunchContainer';
 
 interface Props {
     launchIndex: number;
-    onSelectLaunch: Function;
+    onSelectLaunch: (index: number) => void;
     isUpcomingSelected: boolean;
-    onSelectIsUpcoming: Function;
+    onSelectIsUpcoming: (upcoming: boolean) => void;
 }
 
 const SideBar: React.FC<Props> = ({ launchIndex, onSelectLaunch, isUpcomingSelected, onSelectIsUpcoming }: Props) => {
@@ -15,7 +15,7 @@ const SideBar: React.FC<Props> = ({ launchIndex, onSelectLaunch, isUpcomingSelec
     const [sidebarVisible, setSidebarVisible] = useState<boolean>(true);
 
     return (
-        <div className={sidebarVisible ? styles.sidebar : styles.sidebar__hidden}>
+        <div className={`${styles.sidebar} ${sidebarVisible ? styles.sidebar__hidden : ''}`}>
             <div className={styles.launchTypSelection}>
                 <p
                     onClick={() => {
@@ -37,19 +37,19 @@ const SideBar: React.FC<Props> = ({ launchIndex, onSelectLaunch, isUpcomingSelec
                 </p>
             </div>
             <div className={styles.launchSelection}>
-                {launches.map((obj, index) => (
+                {launches.map((launch, i) => (
                     <LaunchContainer
-                        key={obj.flight_number}
-                        active={launchIndex === index}
-                        flightNumber={obj.flight_number}
-                        name={obj.name}
-                        launchPadName={obj.launchpad?.name}
-                        rocketName={obj.rocket?.name}
-                        payload={obj.payloads[0]?.type}
-                        date={obj.date_unix}
+                        key={launch.flight_number}
+                        active={launchIndex === i}
+                        flightNumber={launch.flight_number}
+                        name={launch.name}
+                        launchPadName={launch.launchpad?.name}
+                        rocketName={launch.rocket?.name}
+                        payload={launch.payloads[0]?.type}
+                        date={launch.date_unix}
                         onClick={() => {
                             setSidebarVisible(false);
-                            onSelectLaunch(index);
+                            onSelectLaunch(i);
                         }}
                     />
                 ))}

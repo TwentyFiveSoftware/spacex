@@ -12,15 +12,11 @@ interface Props {
     onClick: () => void;
 }
 
-const formatDate = (date: number) => {
-    const DATE_TIME_FORMAT = Intl.DateTimeFormat('de', {
-        day: '2-digit',
-        month: '2-digit',
-        year: 'numeric',
-    });
-
-    return DATE_TIME_FORMAT.format(new Date(date * 1000));
-};
+const DATE_TIME_FORMAT = Intl.DateTimeFormat('de', {
+    day: '2-digit',
+    month: '2-digit',
+    year: 'numeric',
+});
 
 const LaunchContainer: React.FC<Props> = ({
     active,
@@ -33,11 +29,11 @@ const LaunchContainer: React.FC<Props> = ({
     onClick,
 }: Props) => {
     return (
-        <div className={active ? styles.container : styles.containerInactive} onClick={() => onClick()}>
+        <div className={`${styles.container} ${!active ? styles.container__inactive : ''}`} onClick={onClick}>
             <p className={styles.flightNumber}>#{flightNumber.toString()}</p>
             <p className={styles.name}>{name}</p>
             <div className={styles.flexRow}>
-                <p>{formatDate(date)}</p>
+                <p>{DATE_TIME_FORMAT.format(new Date(date * 1000))}</p>
                 <p className={styles.spacer}>•</p>
                 <p>{rocketName}</p>
             </div>

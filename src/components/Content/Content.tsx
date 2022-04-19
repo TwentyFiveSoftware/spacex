@@ -1,9 +1,9 @@
 import React, { useContext } from 'react';
 import styles from './Content.module.scss';
-import { LaunchesContext } from '../App/App';
-import InfoContainer from '../InfoContainer/InfoContainer';
-import DataTable from '../DataTable/DataTable';
-import GroupWrapper from '../GroupWrapper/GroupWrapper';
+import { LaunchesContext } from 'components/App/App';
+import InfoContainer from 'components/InfoContainer/InfoContainer';
+import DataTable from 'components/DataTable/DataTable';
+import GroupWrapper from 'components/GroupWrapper/GroupWrapper';
 
 const DATE_TIME_FORMAT = Intl.DateTimeFormat('de', {
     day: '2-digit',
@@ -13,9 +13,19 @@ const DATE_TIME_FORMAT = Intl.DateTimeFormat('de', {
     minute: '2-digit',
 });
 
+const CURRENCY_FORMAT = Intl.NumberFormat('en', {
+    style: 'currency',
+    currency: 'USD',
+    maximumFractionDigits: 0,
+});
+
 const Content: React.FC<{ launchIndex: number }> = ({ launchIndex }) => {
     const launches = useContext(LaunchesContext);
-    if (launches.length <= launchIndex) return null;
+
+    if (launches.length <= launchIndex) {
+        return null;
+    }
+
     const launch = launches[launchIndex];
 
     return (
@@ -35,19 +45,16 @@ const Content: React.FC<{ launchIndex: number }> = ({ launchIndex }) => {
                                 { name: 'Height', value: `${launch.rocket.height.meters} m` },
                                 {
                                     name: 'Cost per launch',
-                                    value: new Intl.NumberFormat('en', {
-                                        style: 'currency',
-                                        currency: 'USD',
-                                        maximumFractionDigits: 0,
-                                    }).format(launch.rocket.cost_per_launch),
+                                    value: CURRENCY_FORMAT.format(launch.rocket.cost_per_launch),
                                 },
                             ]}
                         />
                     </InfoContainer>
+
                     <InfoContainer title={'CORES / LANDING'}>
-                        {launch.cores.map((core, index) => (
-                            <GroupWrapper key={index}>
-                                <h3 className={styles.subtitle}>CORE #{index + 1}</h3>
+                        {launch.cores.map((core, i) => (
+                            <GroupWrapper key={i}>
+                                <h3 className={styles.subtitle}>CORE #{i + 1}</h3>
                                 <DataTable
                                     content={[
                                         { name: 'Flight', value: core.flight },
@@ -82,10 +89,11 @@ const Content: React.FC<{ launchIndex: number }> = ({ launchIndex }) => {
                         ))}
                     </InfoContainer>
                 </div>
+
                 <div className={styles.column}>
                     <InfoContainer title={'PAYLOAD'}>
-                        {launch.payloads.map((payload, index) => (
-                            <GroupWrapper key={index}>
+                        {launch.payloads.map((payload, i) => (
+                            <GroupWrapper key={i}>
                                 <DataTable
                                     content={[
                                         { name: 'Name', value: payload.name },
@@ -95,7 +103,7 @@ const Content: React.FC<{ launchIndex: number }> = ({ launchIndex }) => {
                                         {
                                             name: 'Mass',
                                             value: payload.mass_kg
-                                                ? `${new Intl.NumberFormat('de').format(payload.mass_kg)} kg`
+                                                ? `${Intl.NumberFormat('de').format(payload.mass_kg)} kg`
                                                 : '---',
                                         },
                                         { name: 'Orbit', value: `${payload.orbit} (${payload.regime})` },
@@ -104,6 +112,7 @@ const Content: React.FC<{ launchIndex: number }> = ({ launchIndex }) => {
                             </GroupWrapper>
                         ))}
                     </InfoContainer>
+
                     <InfoContainer title={'LAUNCHPAD'} text={launch.launchpad.details}>
                         <DataTable
                             content={[
