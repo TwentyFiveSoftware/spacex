@@ -1,0 +1,14 @@
+{
+  "files": {
+    "main.css": "/static/css/main.dab19ebb.css",
+    "main.js": "/static/js/main.bf16c6fd.js",
+    "static/media/Redwing.otf": "/static/media/Redwing.7402d4c764b8807db59b.otf",
+    "index.html": "/index.html",
+    "main.dab19ebb.css.map": "/static/css/main.dab19ebb.css.map",
+    "main.bf16c6fd.js.map": "/static/js/main.bf16c6fd.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.dab19ebb.css",
+    "static/js/main.bf16c6fd.js"
+  ]
+}
