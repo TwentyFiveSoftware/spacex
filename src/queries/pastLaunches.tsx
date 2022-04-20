@@ -1,11 +1,11 @@
-export const UPCOMING_LAUNCHES_REQUEST_BODY = {
+export const PAST_LAUNCHES_REQUEST_BODY = {
     query: {
-        upcoming: true,
+        upcoming: false,
     },
     options: {
-        limit: 50,
+        limit: 100,
         sort: {
-            flight_number: 'asc',
+            flight_number: 'desc',
         },
         select: {
             _id: 1,
@@ -14,11 +14,12 @@ export const UPCOMING_LAUNCHES_REQUEST_BODY = {
             details: 1,
             date_unix: 1,
             date_precision: 1,
-            tbd: 1,
-            net: 1,
             rocket: 1,
             payloads: 1,
             launchpad: 1,
+            'links.patch.large': 1,
+            'links.flickr.original': 1,
+            'links.youtube_id': 1,
             'cores.flight': 1,
             'cores.landing_attempt': 1,
             'cores.landing_type': 1,
@@ -30,10 +31,17 @@ export const UPCOMING_LAUNCHES_REQUEST_BODY = {
                 select: {
                     _id: 0,
                     name: 1,
-                    stages: 1,
                     'height.meters': 1,
+                    'diameter.meters': 1,
+                    stages: 1,
+                    boosters: 1,
                     cost_per_launch: 1,
-                    description: 1,
+                    'engines.number': 1,
+                    'engines.type': 1,
+                    'engines.layout': 1,
+                    'engines.propellant_1': 1,
+                    'engines.propellant_2': 1,
+                    flickr_images: 1,
                 },
             },
             {
@@ -58,7 +66,8 @@ export const UPCOMING_LAUNCHES_REQUEST_BODY = {
                     full_name: 1,
                     locality: 1,
                     region: 1,
-                    details: 1,
+                    timezone: 1,
+                    'images.large': 1,
                 },
             },
             {

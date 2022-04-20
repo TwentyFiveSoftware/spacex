@@ -37,7 +37,7 @@ const Content: React.FC<{ launchIndex: number }> = ({ launchIndex }) => {
 
             <div className={styles.info}>
                 <div className={styles.column}>
-                    <InfoContainer title={'ROCKET'} text={launch.rocket.description}>
+                    <InfoContainer title={'ROCKET'} text={''}>
                         <DataTable
                             content={[
                                 { name: 'Name', value: launch.rocket.name },
@@ -113,7 +113,7 @@ const Content: React.FC<{ launchIndex: number }> = ({ launchIndex }) => {
                         ))}
                     </InfoContainer>
 
-                    <InfoContainer title={'LAUNCHPAD'} text={launch.launchpad.details}>
+                    <InfoContainer title={'LAUNCHPAD'} text={''}>
                         <DataTable
                             content={[
                                 { name: 'Name', value: launch.launchpad.name },
