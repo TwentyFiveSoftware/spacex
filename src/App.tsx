@@ -1,6 +1,6 @@
 import React from 'react';
 import { Route, Routes } from 'react-router-dom';
-import LaunchPage from 'pages/launch/LaunchPage';
+import LaunchPage from 'components/LaunchPage/LaunchPage';
 
 const App: React.FC = () => {
     return (
