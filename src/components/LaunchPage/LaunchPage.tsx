@@ -1,9 +1,10 @@
 import React, { useEffect, useState } from 'react';
 import styles from './LaunchPage.module.scss';
-import { Link, useParams } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
 import axios from 'axios';
 import type { Launch } from 'types/spacex';
 import { PAST_LAUNCHES_REQUEST_BODY } from 'queries/pastLaunches';
+import Header from 'components/Header/Header';
 
 const SPACEX_API_LAUNCHES_ENDPOINT = 'https://api.spacexdata.com/v4/launches/query';
 
@@ -34,20 +35,7 @@ const LaunchPage: React.FC = () => {
 
     return (
         <div className={styles.page}>
-            <div className={styles.header}>
-                <Link to={'/'}>
-                    <div className={styles.icon} />
-                </Link>
-                <div className={styles.logo} />
-                <div className={styles.links}>
-                    <Link to={'/'}>
-                        <div className={styles.link}>PAST LAUNCHES</div>
-                    </Link>
-                    <Link to={'/upcoming'}>
-                        <div className={styles.link}>UPCOMING LAUNCHES</div>
-                    </Link>
-                </div>
-            </div>
+            <Header />
 
             <section className={styles.hero}>
                 <div className={styles.sidebar}>

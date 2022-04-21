@@ -1,0 +1,52 @@
+.wrapper {
+    width: 100%;
+    background-color: var(--color-primary);
+    display: grid;
+    place-items: center;
+}
+
+.header {
+    width: 100%;
+    max-width: 120rem;
+    padding: 4rem 0;
+    display: grid;
+    grid-template-columns: 15rem 1fr max-content 15rem;
+    align-items: center;
+}
+
+.icon {
+    a {
+        display: block;
+        width: 1.5rem;
+        height: 1.5rem;
+        margin: auto;
+        background-color: var(--color-light-gray);
+
+        &:hover {
+            background-color: var(--color-mid-gray);
+        }
+    }
+}
+
+.logo {
+    height: 2.5rem;
+    filter: brightness(0) invert(1);
+    margin-bottom: 0.8rem;
+}
+
+.links {
+    display: flex;
+    gap: 2rem;
+}
+
+.link {
+    color: var(--color-light-gray);
+    font-size: 1.5rem;
+    cursor: pointer;
+    text-underline-offset: 0.5rem;
+
+    &:hover {
+        text-decoration: underline;
+        color: var(--color-mid-gray);
+    }
+}
