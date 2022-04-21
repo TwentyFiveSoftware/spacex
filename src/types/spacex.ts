@@ -22,8 +22,12 @@ export interface Launch {
 
 export interface Rocket {
     name: string;
-    height: { meters: number };
-    diameter: { meters: number };
+    height: {
+        meters: number;
+    };
+    diameter: {
+        meters: number;
+    };
     stages: number;
     boosters: number;
     cost_per_launch: number;
@@ -72,4 +76,7 @@ export interface Landpad {
     locality: string;
     region: string;
     type: string;
+    images: {
+        large: string[];
+    };
 }

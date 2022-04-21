@@ -79,6 +79,7 @@ export const UPCOMING_LAUNCHES_REQUEST_BODY = {
                     locality: 1,
                     region: 1,
                     type: 1,
+                    'images.large': 1,
                 },
             },
         ],
