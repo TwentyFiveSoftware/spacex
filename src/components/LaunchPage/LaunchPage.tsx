@@ -5,7 +5,9 @@ import axios from 'axios';
 import type { Launch } from 'types/spacex';
 import { PAST_LAUNCHES_REQUEST_BODY } from 'queries/pastLaunches';
 import Header from 'components/Header/Header';
-import HeroSection from '../HeroSection/HeroSection';
+import HeroSection from 'components/HeroSection/HeroSection';
+import Heading from 'components/Heading/Heading';
+import MainSection from '../MainSection/MainSection';
 
 const SPACEX_API_LAUNCHES_ENDPOINT = 'https://api.spacexdata.com/v4/launches/query';
 
@@ -40,16 +42,8 @@ const LaunchPage: React.FC = () => {
 
             <HeroSection launch={launch} />
 
-            <main>
-                <div className={styles.heading}>
-                    <div className={styles.left}>
-                        <div className={styles.missionPatch} />
-                    </div>
-                    <div className={styles.right}>
-                        <div className={styles.date}>{launch.date_unix}</div>
-                        <h1 className={styles.name}>{launch.name}</h1>
-                    </div>
-                </div>
+            <MainSection>
+                <Heading launch={launch} />
 
                 <p className={styles.details}>{launch.details}</p>
 
@@ -73,7 +67,7 @@ const LaunchPage: React.FC = () => {
                         </div>
                     </div>
                 </div>
-            </main>
+            </MainSection>
 
             <section className={styles.gallery} />
 
