@@ -22,6 +22,7 @@ import HeroSection from 'components/HeroSection/HeroSection';
 import Heading from 'components/Heading/Heading';
 import MainSection from 'components/MainSection/MainSection';
 import InfoContainer from 'components/InfoContainer/InfoContainer';
+import Gallery from '../Gallery/Gallery';
 
 const SPACEX_API_LAUNCHES_ENDPOINT = 'https://api.spacexdata.com/v4/launches/query';
 
@@ -157,7 +158,7 @@ const LaunchPage: React.FC = () => {
                 </div>
             </MainSection>
 
-            <section className={styles.gallery} />
+            <Gallery launch={launch} />
 
             <section className={styles.webcast} />
         </div>

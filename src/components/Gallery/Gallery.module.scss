@@ -1,0 +1,40 @@
+.gallery {
+    width: 100%;
+    padding: 10rem 0;
+    background-color: var(--color-primary);
+    display: flex;
+    flex-direction: column;
+    gap: 3rem;
+    overflow: hidden;
+}
+
+.rowWrapper {
+    position: relative;
+    width: 100%;
+    height: 30rem;
+
+    &:nth-child(odd) {
+        left: 15rem;
+    }
+
+    &:nth-child(even) {
+        right: 15rem;
+
+        .row {
+            justify-content: end;
+        }
+    }
+}
+
+.row {
+    width: 100%;
+    display: flex;
+    gap: 3rem;
+    //overflow: hidden;
+}
+
+.image {
+    width: auto;
+    height: 30rem;
+    //object-fit: cover;
+}
