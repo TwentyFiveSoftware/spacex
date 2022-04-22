@@ -1,0 +1,25 @@
+.wrapper {
+    width: 100%;
+    display: grid;
+    place-items: center;
+}
+
+.section {
+    width: 100%;
+    max-width: 200rem;
+    padding: 10rem 15rem;
+}
+
+.webcastWrapper {
+    position: relative;
+    padding-bottom: 56.25%;
+    overflow: hidden;
+}
+
+.webcast {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    left: 0;
+    top: 0;
+}

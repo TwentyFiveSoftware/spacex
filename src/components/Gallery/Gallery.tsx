@@ -2,10 +2,6 @@ import React, { useEffect, useState } from 'react';
 import styles from './Gallery.module.scss';
 import type { Launch } from 'types/spacex';
 
-interface Props {
-    launch: Launch;
-}
-
 const debounce = (fn: () => void, ms: number) => {
     let timeout: NodeJS.Timeout;
 
@@ -16,6 +12,10 @@ const debounce = (fn: () => void, ms: number) => {
 };
 
 const imageWidths: number[] = [];
+
+interface Props {
+    launch: Launch;
+}
 
 const Gallery: React.FC<Props> = ({ launch }: Props) => {
     const [windowWidth, setWindowWidth] = useState<number>(window.innerWidth);
