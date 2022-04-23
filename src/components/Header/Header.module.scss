@@ -15,23 +15,24 @@
 }
 
 .icon {
-    a {
-        display: block;
-        width: 1.5rem;
-        height: 1.5rem;
-        margin: auto;
-        background-color: var(--color-light-gray);
+    display: grid;
+    place-self: center;
+    place-items: center;
+    font-size: 1.7rem;
+    color: var(--color-light-gray);
 
-        &:hover {
-            background-color: var(--color-mid-gray);
-        }
+    &:hover {
+        color: var(--color-mid-gray);
     }
 }
 
 .logo {
-    height: 2.5rem;
-    filter: brightness(0) invert(1);
     margin-bottom: 0.8rem;
+
+    img {
+        height: 2.5rem;
+        filter: brightness(0) invert(1);
+    }
 }
 
 .links {

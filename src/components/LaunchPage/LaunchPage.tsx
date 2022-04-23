@@ -50,10 +50,8 @@ const LaunchPage: React.FC = () => {
         return null;
     }
 
-    console.log(launch);
-
     return (
-        <div className={styles.page}>
+        <>
             <Header />
 
             <HeroSection launch={launch} />
@@ -162,7 +160,7 @@ const LaunchPage: React.FC = () => {
             <Gallery launch={launch} />
 
             <Webcast launch={launch} />
-        </div>
+        </>
     );
 };
 
