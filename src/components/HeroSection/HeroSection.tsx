@@ -13,6 +13,10 @@ const DATE_TIME_FORMAT = Intl.DateTimeFormat('de', {
 });
 
 const HeroSection: React.FC<Props> = ({ launch }: Props) => {
+    if (launch.links.flickr.original.length === 0) {
+        return null;
+    }
+
     return (
         <div className={styles.wrapper}>
             <section className={styles.section}>
@@ -24,7 +28,7 @@ const HeroSection: React.FC<Props> = ({ launch }: Props) => {
                     </div>
                 </div>
 
-                <div className={styles.image} />
+                <div className={styles.image} style={{ backgroundImage: `url(${launch.links.flickr.original[0]})` }} />
             </section>
         </div>
     );

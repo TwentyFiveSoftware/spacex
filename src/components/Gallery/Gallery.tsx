@@ -37,7 +37,8 @@ const Gallery: React.FC<Props> = ({ launch }: Props) => {
                 currentRowWidth += imageWidths[i] + 30;
                 newRows[currentRowIndex].push(images[i]);
 
-                if (currentRowWidth + 150 - 30 > windowWidth) {
+                // 150 = padding, 30 = gap, 100 = min visible amount of image
+                if (currentRowWidth + 150 - 30 + 100 > windowWidth) {
                     newRows.push([]);
                     currentRowIndex++;
                     currentRowWidth = 0;
@@ -57,6 +58,10 @@ const Gallery: React.FC<Props> = ({ launch }: Props) => {
             window.removeEventListener('resize', debouncedHandleResize);
         };
     }, []);
+
+    if (images.length === 0) {
+        return null;
+    }
 
     return (
         <section className={styles.gallery}>

@@ -20,19 +20,23 @@ const InfoContainer: React.FC<Props> = ({ title, texts, image, details }: Props)
             <div>
                 <h2 className={styles.title}>{title}</h2>
                 <div className={styles.texts}>
-                    {texts.map((text, i) => (
-                        <p key={i}>{text}</p>
-                    ))}
+                    {texts
+                        .filter(text => text.length > 0)
+                        .map((text, i) => (
+                            <p key={i}>{text}</p>
+                        ))}
                 </div>
                 <ul className={styles.details}>
-                    {details.map((detail, i) => (
-                        <li className={styles.item} key={i}>
-                            <div className={styles.icon}>
-                                <FontAwesomeIcon icon={detail.icon} />
-                            </div>
-                            <p>{detail.text}</p>
-                        </li>
-                    ))}
+                    {details
+                        .filter(detail => detail.text.length > 0)
+                        .map((detail, i) => (
+                            <li className={styles.item} key={i}>
+                                <div className={styles.icon}>
+                                    <FontAwesomeIcon icon={detail.icon} />
+                                </div>
+                                <p>{detail.text}</p>
+                            </li>
+                        ))}
                 </ul>
             </div>
         </div>

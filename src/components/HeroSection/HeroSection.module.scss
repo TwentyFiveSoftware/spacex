@@ -36,8 +36,8 @@
 .image {
     width: 100%;
     height: calc(100vh - 5rem);
-    background-image: url('https://live.staticflickr.com/65535/49956109706_cffa847208_o.jpg');
     background-size: cover;
-    background-position: top center;
+    background-position: center;
     background-repeat: no-repeat;
+    background-color: var(--color-primary);
 }

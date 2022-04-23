@@ -59,7 +59,7 @@ const LaunchPage: React.FC = () => {
             <MainSection>
                 <Heading launch={launch} />
 
-                <p className={styles.details}>{launch.details}</p>
+                {launch.details && <p className={styles.details}>{launch.details}</p>}
 
                 <div className={styles.info}>
                     <InfoContainer
@@ -111,49 +111,51 @@ const LaunchPage: React.FC = () => {
                         ]}
                     />
 
-                    <InfoContainer
-                        title={'LANDPAD'}
-                        texts={[launch.cores[0].landpad?.name ?? '', launch.cores[0].landpad?.full_name ?? '']}
-                        image={launch.cores[0].landpad?.images.large[0] ?? ''}
-                        details={[
-                            {
-                                icon: faLocationDot,
-                                text: `${launch.cores[0].landpad?.locality} (${launch.cores[0].landpad?.region})`,
-                            },
-                            {
-                                icon: faHelicopterSymbol,
-                                text: launch.cores[0].landpad?.type ?? '',
-                            },
-                        ]}
-                    />
+                    {launch.cores.length > 0 && launch.cores[0].landpad && (
+                        <InfoContainer
+                            title={'LANDPAD'}
+                            texts={[launch.cores[0].landpad?.name ?? '', launch.cores[0].landpad?.full_name ?? '']}
+                            image={launch.cores[0].landpad?.images.large[0] ?? ''}
+                            details={[
+                                {
+                                    icon: faLocationDot,
+                                    text: `${launch.cores[0].landpad?.locality} (${launch.cores[0].landpad?.region})`,
+                                },
+                                {
+                                    icon: faHelicopterSymbol,
+                                    text: launch.cores[0].landpad?.type ?? '',
+                                },
+                            ]}
+                        />
+                    )}
 
-                    <InfoContainer
-                        title={'PAYLOAD'}
-                        texts={[launch.payloads[0].type, launch.payloads[0].name]}
-                        image={'https://live.staticflickr.com/65535/51492841327_92e805e83c_b.jpg'}
-                        details={[
-                            {
-                                icon: faMoneyBillWave,
-                                text: launch.payloads[0].customers.join(', '),
-                            },
-                            {
-                                icon: faIndustry,
-                                text: launch.payloads[0].manufacturers.join(', '),
-                            },
-                            {
-                                icon: faEarth,
-                                text: `${launch.payloads[0].orbit} (${launch.payloads[0].regime})`,
-                            },
-                            ...(launch.payloads[0].mass_kg
-                                ? [
-                                      {
-                                          icon: faWeightHanging,
-                                          text: `${Intl.NumberFormat('en').format(launch.payloads[0].mass_kg ?? 0)}kg`,
-                                      },
-                                  ]
-                                : []),
-                        ]}
-                    />
+                    {launch.payloads.length > 0 && (
+                        <InfoContainer
+                            title={'PAYLOAD'}
+                            texts={[launch.payloads[0].type, launch.payloads[0].name]}
+                            image={'https://live.staticflickr.com/65535/51492841327_92e805e83c_b.jpg'}
+                            details={[
+                                {
+                                    icon: faMoneyBillWave,
+                                    text: launch.payloads[0].customers.join(', '),
+                                },
+                                {
+                                    icon: faIndustry,
+                                    text: launch.payloads[0].manufacturers.join(', '),
+                                },
+                                {
+                                    icon: faEarth,
+                                    text: `${launch.payloads[0].orbit} (${launch.payloads[0].regime})`,
+                                },
+                                {
+                                    icon: faWeightHanging,
+                                    text: !launch.payloads[0].mass_kg
+                                        ? ''
+                                        : `${Intl.NumberFormat('en').format(launch.payloads[0].mass_kg ?? 0)}kg`,
+                                },
+                            ]}
+                        />
+                    )}
                 </div>
             </MainSection>
 
