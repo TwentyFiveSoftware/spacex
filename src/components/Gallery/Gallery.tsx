@@ -64,11 +64,10 @@ const Gallery: React.FC<Props> = ({ launch }: Props) => {
                 <div className={styles.rowWrapper} key={i}>
                     <div className={styles.row}>
                         {row.map(image => (
-                            <a href={image} target={'_blank'}>
+                            <a href={image} target={'_blank'} key={`${windowWidth}-${images.indexOf(image)}`}>
                                 <img
                                     src={image}
                                     alt={''}
-                                    key={`${windowWidth}-${image}`}
                                     className={styles.image}
                                     onLoad={e =>
                                         onLoad(images.indexOf(image), e.currentTarget.getBoundingClientRect().width)

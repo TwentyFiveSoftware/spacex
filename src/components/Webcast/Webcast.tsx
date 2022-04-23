@@ -18,6 +18,7 @@ const Webcast: React.FC<Props> = ({ launch }: Props) => {
                     <iframe
                         className={styles.webcast}
                         src={`https://www.youtube-nocookie.com/embed/${launch.links.youtube_id}`}
+                        title={'Webcast'}
                         frameBorder={0}
                         allow={
                             'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture'
