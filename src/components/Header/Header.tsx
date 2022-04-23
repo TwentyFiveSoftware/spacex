@@ -4,13 +4,21 @@ import { Link } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faGrip } from '@fortawesome/free-solid-svg-icons';
 
-const Header: React.FC = () => {
+interface Props {
+    hideIcon?: boolean;
+}
+
+const Header: React.FC<Props> = ({ hideIcon = false }: Props) => {
     return (
         <div className={styles.wrapper}>
             <header className={styles.header}>
-                <Link to={'/'} className={styles.icon}>
-                    <FontAwesomeIcon icon={faGrip} />
-                </Link>
+                {hideIcon ? (
+                    <div />
+                ) : (
+                    <Link to={'/'} className={styles.icon}>
+                        <FontAwesomeIcon icon={faGrip} />
+                    </Link>
+                )}
                 <Link to={'/'} className={styles.logo}>
                     <img src={'https://upload.wikimedia.org/wikipedia/commons/d/de/SpaceX-Logo.svg'} alt={'SpaceX'} />
                 </Link>
