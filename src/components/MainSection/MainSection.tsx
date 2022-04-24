@@ -2,12 +2,13 @@ import React from 'react';
 import styles from './MainSection.module.scss';
 
 interface Props {
-    children: React.ReactNode[];
+    children: React.ReactNode[] | React.ReactNode;
+    dark?: boolean;
 }
 
-const MainSection: React.FC<Props> = ({ children }: Props) => {
+const MainSection: React.FC<Props> = ({ children, dark = false }: Props) => {
     return (
-        <div className={styles.wrapper}>
+        <div className={`${styles.wrapper} ${dark ? styles.wrapper__dark : ''}`}>
             <main className={styles.main}>{children}</main>
         </div>
     );

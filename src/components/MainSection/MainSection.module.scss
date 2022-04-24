@@ -4,6 +4,11 @@
     place-items: center;
 }
 
+.wrapper__dark {
+    background-color: var(--color-primary);
+    min-height: calc(100vh - 13.5rem);
+}
+
 .main {
     width: 100%;
     max-width: 200rem;

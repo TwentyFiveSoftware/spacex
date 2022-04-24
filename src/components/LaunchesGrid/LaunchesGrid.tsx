@@ -23,7 +23,7 @@ const LaunchesGrid: React.FC<Props> = ({ launches }: Props) => {
                 <Link to={`/launch/${launch.id}`} key={launch.id}>
                     <div className={styles.launch}>
                         <div className={styles.image}>
-                            <img src={launch.links.flickr.original[0]} alt={''} />
+                            {launch.links.flickr.original[0] && <img src={launch.links.flickr.original[0]} alt={''} />}
                         </div>
                         <p className={styles.name}>{launch.name}</p>
                         <p className={styles.date}>{DATE_TIME_FORMAT.format(launch.date_unix * 1000)}</p>
