@@ -1,11 +1,9 @@
-export const UPCOMING_LAUNCHES_REQUEST_BODY = {
-    query: {
-        upcoming: true,
-    },
+export const LAUNCHES_REQUEST_BODY = {
+    query: {},
     options: {
-        limit: 100,
+        limit: 1000,
         sort: {
-            flight_number: 'asc',
+            flight_number: 'desc',
         },
         select: {
             _id: 1,
@@ -14,6 +12,7 @@ export const UPCOMING_LAUNCHES_REQUEST_BODY = {
             details: 1,
             date_unix: 1,
             date_precision: 1,
+            upcoming: 1,
             rocket: 1,
             payloads: 1,
             launchpad: 1,

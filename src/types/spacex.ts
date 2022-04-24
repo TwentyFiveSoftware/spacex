@@ -5,6 +5,7 @@ export interface Launch {
     details: string | null;
     date_unix: number;
     date_precision: 'quarter' | 'half' | 'year' | 'month' | 'day' | 'hour';
+    upcoming: boolean;
     links: {
         patch: {
             large: string;
