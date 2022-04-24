@@ -1,9 +1,6 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import styles from './LaunchPage.module.scss';
 import { useParams } from 'react-router-dom';
-import axios from 'axios';
-import type { Launch } from 'types/spacex';
-import { PAST_LAUNCHES_REQUEST_BODY } from 'queries/pastLaunches';
 import {
     faClock,
     faEarth,
@@ -17,6 +14,7 @@ import {
     faSackDollar,
     faWeightHanging,
 } from '@fortawesome/free-solid-svg-icons';
+import type { Launch } from 'types/spacex';
 import Header from 'components/Header/Header';
 import HeroSection from 'components/HeroSection/HeroSection';
 import Heading from 'components/Heading/Heading';
@@ -25,26 +23,13 @@ import InfoContainer from 'components/InfoContainer/InfoContainer';
 import Gallery from 'components/Gallery/Gallery';
 import Webcast from 'components/Webcast/Webcast';
 
-const SPACEX_API_LAUNCHES_ENDPOINT = 'https://api.spacexdata.com/v4/launches/query';
+interface Props {
+    launches: Launch[];
+}
 
-const LaunchPage: React.FC = () => {
+const LaunchPage: React.FC<Props> = ({ launches }: Props) => {
     const { launchId } = useParams<{ launchId: string }>();
-    const [launch, setLaunch] = useState<Launch>();
-
-    useEffect(() => {
-        if (!launchId) return;
-
-        (async () => {
-            const { data } = await axios.post<{ docs: Launch[] }>(
-                SPACEX_API_LAUNCHES_ENDPOINT,
-                PAST_LAUNCHES_REQUEST_BODY,
-                { headers: { 'Content-Type': 'application/json' } },
-            );
-
-            if (!data) return;
-            setLaunch(data.docs.find(l => l.id === launchId));
-        })();
-    }, [launchId]);
+    const launch = launches.find(l => l.id === launchId);
 
     if (!launch) {
         return null;
