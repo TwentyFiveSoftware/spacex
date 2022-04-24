@@ -69,7 +69,7 @@ const Gallery: React.FC<Props> = ({ launch }: Props) => {
                 <div className={styles.rowWrapper} key={i}>
                     <div className={styles.row}>
                         {row.map(image => (
-                            <a href={image} target={'_blank'} key={`${windowWidth}-${images.indexOf(image)}`}>
+                            <a href={image} target={'_blank'} rel={'noreferrer'} key={`${windowWidth}-${image}`}>
                                 <img
                                     src={image}
                                     alt={''}
@@ -86,7 +86,7 @@ const Gallery: React.FC<Props> = ({ launch }: Props) => {
 
             <div className={styles.allImages}>
                 {images.map(image => (
-                    <a href={image} target={'_blank'} key={`${windowWidth}-${images.indexOf(image)}`}>
+                    <a href={image} target={'_blank'} rel={'noreferrer'} key={image}>
                         <img src={image} alt={''} className={styles.image} />
                     </a>
                 ))}

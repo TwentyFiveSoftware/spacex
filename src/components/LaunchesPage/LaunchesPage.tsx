@@ -1,5 +1,4 @@
 import React from 'react';
-import styles from './LaunchesPage.module.scss';
 import type { Launch } from 'types/spacex';
 import Header from 'components/Header/Header';
 import LaunchesGrid from 'components/LaunchesGrid/LaunchesGrid';
