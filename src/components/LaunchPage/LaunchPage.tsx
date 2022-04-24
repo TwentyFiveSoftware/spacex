@@ -96,51 +96,56 @@ const LaunchPage: React.FC<Props> = ({ launches }: Props) => {
                         ]}
                     />
 
-                    {launch.cores.length > 0 && launch.cores[0].landpad && (
-                        <InfoContainer
-                            title={'LANDPAD'}
-                            texts={[launch.cores[0].landpad?.name ?? '', launch.cores[0].landpad?.full_name ?? '']}
-                            image={launch.cores[0].landpad?.images.large[0] ?? ''}
-                            details={[
-                                {
-                                    icon: faLocationDot,
-                                    text: `${launch.cores[0].landpad?.locality} (${launch.cores[0].landpad?.region})`,
-                                },
-                                {
-                                    icon: faHelicopterSymbol,
-                                    text: launch.cores[0].landpad?.type ?? '',
-                                },
-                            ]}
-                        />
+                    {launch.cores.map(
+                        ({ landpad }, i) =>
+                            landpad && (
+                                <InfoContainer
+                                    key={i}
+                                    title={`LANDPAD${launch.cores.length > 1 ? ` #${i + 1}` : ''}`}
+                                    texts={[landpad.name, landpad.full_name]}
+                                    image={landpad.images.large[0]}
+                                    details={[
+                                        {
+                                            icon: faLocationDot,
+                                            text: `${landpad.locality} (${landpad.region})`,
+                                        },
+                                        {
+                                            icon: faHelicopterSymbol,
+                                            text: landpad.type,
+                                        },
+                                    ]}
+                                />
+                            ),
                     )}
 
-                    {launch.payloads.length > 0 && (
+                    {launch.payloads.map((payload, i) => (
                         <InfoContainer
-                            title={'PAYLOAD'}
-                            texts={[launch.payloads[0].type, launch.payloads[0].name]}
+                            key={i}
+                            title={`PAYLOAD${launch.payloads.length > 1 ? ` #${i + 1}` : ''}`}
+                            texts={[payload.type, payload.name]}
                             image={'https://live.staticflickr.com/65535/51492841327_92e805e83c_b.jpg'}
                             details={[
                                 {
                                     icon: faMoneyBillWave,
-                                    text: launch.payloads[0].customers.join(', '),
+                                    text: payload.customers.length === 0 ? '' : payload.customers.join(', '),
                                 },
                                 {
                                     icon: faIndustry,
-                                    text: launch.payloads[0].manufacturers.join(', '),
+                                    text: payload.manufacturers.length === 0 ? '' : payload.manufacturers.join(', '),
                                 },
                                 {
                                     icon: faEarth,
-                                    text: `${launch.payloads[0].orbit} (${launch.payloads[0].regime})`,
+                                    text: `${payload.orbit}${payload.regime ? ` (${payload.regime})` : ''}`,
                                 },
                                 {
                                     icon: faWeightHanging,
-                                    text: !launch.payloads[0].mass_kg
+                                    text: !payload.mass_kg
                                         ? ''
-                                        : `${Intl.NumberFormat('en').format(launch.payloads[0].mass_kg ?? 0)}kg`,
+                                        : `${Intl.NumberFormat('en').format(payload.mass_kg ?? 0)}kg`,
                                 },
                             ]}
                         />
-                    )}
+                    ))}
                 </div>
             </MainSection>
 
