@@ -12,6 +12,19 @@
     display: grid;
     grid-template-columns: 15rem 1fr max-content 15rem;
     align-items: center;
+
+    @media (max-width: 1300px) {
+        grid-template-columns: 10rem 1fr max-content 10rem;
+    }
+
+    @media (max-width: 1000px) {
+        grid-template-columns: 1fr max-content;
+        padding: 3rem 5rem;
+    }
+
+    @media (max-width: 700px) {
+        grid-template-columns: 1fr;
+    }
 }
 
 .icon {
@@ -24,6 +37,10 @@
     &:hover {
         color: var(--color-mid-gray);
     }
+
+    @media (max-width: 1000px) {
+        display: none;
+    }
 }
 
 .logo {
@@ -32,6 +49,10 @@
     img {
         height: 2.5rem;
         filter: brightness(0) invert(1);
+    }
+
+    @media (max-width: 700px) {
+        display: none;
     }
 }
 

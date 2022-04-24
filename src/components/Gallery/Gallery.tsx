@@ -83,6 +83,14 @@ const Gallery: React.FC<Props> = ({ launch }: Props) => {
                     </div>
                 </div>
             ))}
+
+            <div className={styles.allImages}>
+                {images.map(image => (
+                    <a href={image} target={'_blank'} key={`${windowWidth}-${images.indexOf(image)}`}>
+                        <img src={image} alt={''} className={styles.image} />
+                    </a>
+                ))}
+            </div>
         </section>
     );
 };

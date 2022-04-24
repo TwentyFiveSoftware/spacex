@@ -8,6 +8,14 @@
     width: 100%;
     max-width: 200rem;
     padding: 10rem 15rem;
+
+    @media (max-width: 1300px) {
+        padding: 10rem;
+    }
+
+    @media (max-width: 1000px) {
+        padding: 10rem 5rem;
+    }
 }
 
 .webcastWrapper {

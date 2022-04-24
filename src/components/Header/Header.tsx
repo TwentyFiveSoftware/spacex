@@ -15,7 +15,7 @@ const Header: React.FC<Props> = ({ hideIcon = false }: Props) => {
         <div className={styles.wrapper}>
             <header className={styles.header}>
                 {hideIcon ? (
-                    <div />
+                    <div className={styles.icon} />
                 ) : (
                     <Link to={'/'} className={styles.icon}>
                         <FontAwesomeIcon icon={faGrip} />

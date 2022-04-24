@@ -9,4 +9,8 @@
     display: flex;
     flex-direction: column;
     gap: 5rem;
+
+    @media (max-width: 1000px) {
+        gap: 7rem;
+    }
 }

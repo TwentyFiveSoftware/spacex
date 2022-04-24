@@ -16,6 +16,14 @@
 
     &:nth-child(odd) {
         left: 15rem;
+
+        @media (max-width: 1300px) {
+            left: 10rem;
+        }
+
+        @media (max-width: 1000px) {
+            left: 5rem;
+        }
     }
 
     &:nth-child(even) {
@@ -24,6 +32,18 @@
         .row {
             justify-content: end;
         }
+
+        @media (max-width: 1300px) {
+            right: 10rem;
+        }
+
+        @media (max-width: 1000px) {
+            right: 5rem;
+        }
+    }
+
+    @media (max-width: 700px) {
+        display: none;
     }
 }
 
@@ -31,11 +51,29 @@
     width: 100%;
     display: flex;
     gap: 3rem;
-    //overflow: hidden;
+
+    @media (max-width: 700px) {
+        flex-direction: column;
+    }
 }
 
 .image {
     width: auto;
     height: 30rem;
-    //object-fit: cover;
+
+    @media (max-width: 700px) {
+        width: 100%;
+        height: auto;
+    }
+}
+
+.allImages {
+    display: none;
+    flex-direction: column;
+    padding: 0 5rem;
+    gap: 2rem;
+
+    @media (max-width: 700px) {
+        display: flex;
+    }
 }

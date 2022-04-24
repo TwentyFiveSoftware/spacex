@@ -13,4 +13,13 @@
     width: 100%;
     max-width: 200rem;
     padding: 5rem 15rem;
+
+    @media (max-width: 1300px) {
+        padding: 5rem 10rem;
+    }
+
+
+    @media (max-width: 1000px) {
+        padding: 5rem;
+    }
 }
