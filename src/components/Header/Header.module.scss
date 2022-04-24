@@ -51,3 +51,8 @@
         color: var(--color-mid-gray);
     }
 }
+
+.link__selected {
+    text-decoration: underline;
+    color: var(--color-mid-gray);
+}

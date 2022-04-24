@@ -1,6 +1,6 @@
 import React from 'react';
 import styles from './Header.module.scss';
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faGrip } from '@fortawesome/free-solid-svg-icons';
 
@@ -9,6 +9,8 @@ interface Props {
 }
 
 const Header: React.FC<Props> = ({ hideIcon = false }: Props) => {
+    const { pathname } = useLocation();
+
     return (
         <div className={styles.wrapper}>
             <header className={styles.header}>
@@ -24,10 +26,14 @@ const Header: React.FC<Props> = ({ hideIcon = false }: Props) => {
                 </Link>
                 <div className={styles.links}>
                     <Link to={'/'}>
-                        <div className={styles.link}>PAST LAUNCHES</div>
+                        <div className={`${styles.link} ${pathname === '/' ? styles.link__selected : ''}`}>
+                            PAST LAUNCHES
+                        </div>
                     </Link>
                     <Link to={'/upcoming'}>
-                        <div className={styles.link}>UPCOMING LAUNCHES</div>
+                        <div className={`${styles.link} ${pathname === '/upcoming' ? styles.link__selected : ''}`}>
+                            UPCOMING LAUNCHES
+                        </div>
                     </Link>
                 </div>
             </header>
